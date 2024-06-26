@@ -294,8 +294,12 @@ def main():
     screen = pygame.display.set_mode((540, 590))
     screen.fill((255, 255, 255))
     pygame.display.set_caption("Sudoku Solver")
-    icon = pygame.image.load("assets/thumbnail.png")
-    pygame.display.set_icon(icon)
+    
+    try:
+        icon = pygame.image.load("assets/thumbnail.png")
+        pygame.display.set_icon(icon)
+    except FileNotFoundError:
+        print("Warning: Icon file 'assets/thumbnail.png' not found. Proceeding without setting the window icon.")
 
     # Display "Generating Random Grid" text while generating a random grid
     font = pygame.font.SysFont("Bahnschrift", 40)
